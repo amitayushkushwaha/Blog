@@ -10,17 +10,6 @@ import CreatePost from "./components/CreatePost";
 
 function App() {
   return (
-    // <div>
-     //  <Header /> 
-            // <div className="temp">
-      // <Blogs />
-      // <Blogs />
-      // <Blogs />
-      // <Blogs />
-      // </div>
-
-    // </div>
-
       <Routes>
       <Route path="/" element={<Home />}></Route>
       <Route path="home" element={<Home />}></Route>

@@ -11,9 +11,7 @@ const multer = require("multer");
 const uploadMiddleware = multer({ dest: "uploads" });
 const fs = require("fs");
 
-// const bcrypt = require('bcrypt');
-// const saltRounds = 10;
-// mKS6UbMla22bRsYN
+
 
 main().catch((err) => console.log(err));
 async function main() {
@@ -103,4 +101,4 @@ app.get('/post',async(req,res)=>{
 app.listen(4000, () => {
   console.log("successfully connected on server 4000");
 });
-//
+

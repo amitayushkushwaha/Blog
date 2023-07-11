@@ -42,9 +42,9 @@ function Signin() {
         />
       
       </div>
-      <div className="test">
+      <div className="text">
         <input
-          type="text"
+          type="password"
           id="inputPassword"
           class="form-control"
           placeholder="Password "

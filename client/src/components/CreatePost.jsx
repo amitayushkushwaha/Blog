@@ -1,7 +1,9 @@
+
 import React, { useState } from "react";
 import Header from "./Header";
 import { Navigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import NewTopbar from "./NewTopbar";
 function CreatePost() {
   let { state } = useLocation();
   const [username, setUsername] = useState(state);
@@ -28,8 +30,9 @@ function CreatePost() {
 
   return (
     <div className="create_post">
-      <Header />
-      <form className="create_post_form" onSubmit={createNewPost}>
+      {/* <Header /> */}
+      <NewTopbar />
+      <form className="create_post_form" onSubmit={createNewPost} style={{marginTop: "6rem"}}>
         <input
           type="title"
           placeholder="Title for the Blog"

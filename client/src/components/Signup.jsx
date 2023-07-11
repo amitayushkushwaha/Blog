@@ -38,7 +38,7 @@ function Signup() {
       </div>
       <div className="test">
         <input
-          type="text"
+          type="password"
           id="inputPassword"
           class="form-control"
           placeholder="Password "

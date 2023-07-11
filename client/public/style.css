@@ -44,7 +44,6 @@ h1 {
   margin: auto;
   margin-top: 2rem;
 
-  /* background-color: #dfdbf9; */
   background-color: #debcf2;
   position: relative;
   border-radius: 1rem;
@@ -66,6 +65,12 @@ h1 {
   border: #eae8f8;
 }
 .form-signin input[type="text"] {
+  margin-bottom: 1rem;
+
+  border-radius: 10px;
+  border: #e3dffd;
+}
+.form-signin input[type="password"] {
   margin-bottom: 1rem;
 
   border-radius: 10px;
@@ -137,6 +142,7 @@ div.blogs div.image img {
   padding: 10px;
   max-width: 1000px;
   margin: 0 auto;
+  margin-top: 5rem;
 }
 .text h1 {
   word-wrap: break-word;
@@ -161,6 +167,9 @@ a {
 }
 .blog .image img {
   height: 16rem;
+}
+.blog_title{
+  font-size: 1.5rem;
 }
 .create_post_form {
   position: relative;
@@ -189,7 +198,6 @@ a {
   cursor: pointer;
   border: 1px solid black;
   padding: 1rem;
-
 }
 .file-label h6 {
   display: inline;
@@ -208,3 +216,89 @@ a {
   font-weight: 200;
   background-color: rgba(0, 0, 0, 0.7);
 }
+
+/**
+* New Top Bar styles
+*/
+.topbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  height: 5rem;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #cf9cec;
+}
+.post_actions {
+
+ margin-right: 10vw;
+display: grid;
+ grid-template-columns: auto auto auto;
+ box-sizing: border-box;
+
+}
+.post_actions a{
+  margin-right: 2vw;
+
+}
+.topbar_button{
+  /* height: 2rem; */
+  font-size: 1.2rem;
+  border: none;
+  color: white;
+  background-color: #cf9cec;
+  padding: 7px ;
+  border-radius: 5px;
+}
+.brand{
+  margin-left: 10vw;
+  font-size: 2rem;
+  color: white;
+}
+
+
+@media only screen and (max-width: 700px){
+  .post_actions{
+    margin-right: 2vw;
+  }
+  .brand{
+    margin-left: 2vw;
+  }
+  .blog_title{
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 600px){
+
+  .brand{
+    font-size: 1.5rem;
+  }
+  .topbar_button{
+    font-size: 1rem;
+    padding: 5px;
+  }
+}
+@media only screen and (max-width: 500px){
+  .brand{
+    font-size: 1.2rem;
+  }
+  .topbar_button{
+    font-size: 12px;
+  }
+  .post_actions{
+    margin-right: 1vw;
+  }
+}
+.sign{
+  border: 1px solid white;
+
+}
+
+
+/* Code kr mai kaam s=kr ke aaya kk*/
+ /* margin top pr kyo nhi lg rha inline element me margin sayad kaam nhi krega jaise anchor tag/ */
+  /* padding dalun phir ye bhi kam n kr rha  */
