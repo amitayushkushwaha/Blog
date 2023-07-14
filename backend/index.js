@@ -1,5 +1,4 @@
 const express = require("express");
-require("dotenv").config();
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -30,7 +29,7 @@ async function main() {
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+// app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use('/uploads',express.static(__dirname+'/uploads'));
 app.get("/test", (req, res) => {
   res.json("test ok");
@@ -103,9 +102,7 @@ app.post('/comment', async (req,res)=>{
   } catch (e) {
     res.status(400).json(e);
   }
-// const comments= await Comment.find({username,blog,time});
-// res.json(comments);
-// console.log(comments);
+
 });
 app.get('/comment', async (req,res)=>{
   const comments= await Comment.find().sort({createdAt: -1});
@@ -116,7 +113,11 @@ app.get('/post',async(req,res)=>{
   const posts=await Post.find().sort({createdAt: -1}).limit(20);
   res.json(posts);
 })
-app.listen(4000, () => {
-  console.log("successfully connected on server 4000");
-});
+// app.listen(4000, () => {
+//   console.log("successfully connected on server 4000");
+// });
+
+app.listen(process.env.PORT || 4000, () => {
+  console.log("Backend running...");
+})
 
