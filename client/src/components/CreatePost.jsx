@@ -1,6 +1,5 @@
 
 import React, { useState } from "react";
-import Header from "./Header";
 import { Navigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import NewTopbar from "./NewTopbar";
@@ -30,7 +29,7 @@ function CreatePost() {
 
   return (
     <div className="create_post">
-      {/* <Header /> */}
+   
       <NewTopbar />
       <form className="create_post_form" onSubmit={createNewPost} style={{marginTop: "6rem"}}>
         <input
@@ -42,7 +41,7 @@ function CreatePost() {
           required
         />
         <textarea
-          //  type="summary"
+      
           placeholder="Blog Content"
           className="summary"
           value={summary}

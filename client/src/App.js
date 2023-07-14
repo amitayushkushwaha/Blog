@@ -1,8 +1,6 @@
 import React from "react";
 import Signup from "./components/Signup";
 import Signin from "./components/Signin";
-import Header from "./components/Header";
-import Blogs from "./components/Blogs";
 import Home from "./components/Home";
 import { Route, Routes } from "react-router-dom";
 import Blog from "./components/Blog";

@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const User = require("./models/User");
 const Post = require("./models/post");
+const Comment=require("./models/comment");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const multer = require("multer");
@@ -94,6 +95,23 @@ app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
   });
   res.json(postDoc);
 });
+app.post('/comment', async (req,res)=>{
+  const { username, comment,blog,time } = req.body;
+  try {
+    const userDoc = await Comment.create({ username, comment,blog,time });
+    res.json(userDoc);
+  } catch (e) {
+    res.status(400).json(e);
+  }
+// const comments= await Comment.find({username,blog,time});
+// res.json(comments);
+// console.log(comments);
+});
+app.get('/comment', async (req,res)=>{
+  const comments= await Comment.find().sort({createdAt: -1});
+  res.json(comments);
+})
+
 app.get('/post',async(req,res)=>{
   const posts=await Post.find().sort({createdAt: -1}).limit(20);
   res.json(posts);

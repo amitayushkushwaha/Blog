@@ -1,52 +1,66 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+var essential="";
 
-export default function NewTopbar() {
-  const [isAuthenticated, setAuthenticated] = useState(true);
-
+ function NewTopbar() {
+  const [username, setUsername] = useState("");
+  useEffect(() => {
+    fetch("http://localhost:4000/profile", {
+      credentials: "include",
+    }).then((response) => {
+      response.json().then((userInfo) => {
+        setUsername(userInfo.username);
+      });
+    });
+  }, []);
+  function signout() {
+    fetch("http://localhost:4000/signout", {
+      credentials: "include",
+      method: "POST",
+    });
+    setUsername(null);
+  }
+essential=username;
   return (
-    <>
+    
       <nav className="topbar">
         <div className="brand">DAILY BLOGS</div>
         <div className="actions">
           <div className="post_actions">
-            {isAuthenticated && (
+            {!username && (
               <>
-               {/* <a href="/home">
-                <button className="topbar_button">Home</button>
-              </a>
-               <a href="/create">
-                <button className="topbar_button">Create Post</button>
-              </a>
-              <a href="/signout">
-                <button className="topbar_button sign">Sign Out</button>
-              </a> */}
-              <a href="/home">
-                <button className="topbar_button">Home</button>
-              </a>
-               <a href="/signin">
-                <button className="topbar_button">Sign In</button>
-              </a>
-              <a href="/signup">
-                <button className="topbar_button sign">Sign Up</button>
-              </a>
+                <a href="/home">
+                  <button className="topbar_button">Home</button>
+                </a>
+                <a href="/signin">
+                  <button className="topbar_button">Sign In</button>
+                </a>
+                <a href="/signup">
+                  <button className="topbar_button sign" >Sign Up</button>
+                </a>
               </>
-
             )}
-          </div>
-          <div className="auth_actions">
-            {/* {isAuthenticated ?? (
-              <a href="/signin">
-                <button className="topbar_button">Sign In</button>
-              </a>
+             {username && (
+              <>
+                <a href="/home">
+                  <button className="topbar_button">Home</button>
+                </a>
+                <Link to="../create" state={username} relative="path">
+              <button className="topbar_button">Create Post</button>
+            </Link>
+                <a href="/">
+                  <button className="topbar_button sign" onClick={signout}>Sign Out</button>
+                </a>
+              </>
             )}
-            {isAuthenticated && (
-              <a href="/signout">
-                <button className="topbar_button">Sign Out</button>
-              </a>
-            )} */}
           </div>
         </div>
       </nav>
-    </>
+    
   );
-} // Bro tu design kr jaisa dikha rha h time waste ho rha h okk mai kr ke btata hu t
+} 
+export default NewTopbar;
+export {essential};
+
+

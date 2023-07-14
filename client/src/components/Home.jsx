@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Header from "./Header";
+
 import Blogs from "./Blogs";
 import { Link } from "react-router-dom";
 import NewTopbar from "./NewTopbar";
@@ -15,11 +15,11 @@ function Home() {
       })
     })
   },[]);
-  console.log(posts);
+
   return (
     <div>
       <NewTopbar />
-      {/* <Header /> */}
+  
       <div className="temp">
         {posts.map((item) => {
           return (
